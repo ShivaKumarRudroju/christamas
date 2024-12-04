@@ -1,1140 +1,1231 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    * {
-      margin: 0px;
-      padding: 0px;
-      box-sizing: border-box;
-    }
-    header {
-      font-size: 12px;
-      height: 54px;
-      background-color: #262626;
-      z-index: 100;
-      line-height: 54px;
-      position: relative;
-    }
+<style>
+  .macontainer {
+    background-image: url("https://cdn.shopify.com/s/files/1/1198/3148/files/bg.jpg?v=1733322463");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    position: relative;
+  }
+  .snow-toy img {
+    max-width: unset;
+    height: 100%;
+  }
+  .scrolling-image1 img {
+    max-width: unset;
+    height: 100%;
+  }
+  .scrolling-image2 img {
+    max-width: unset;
+    height: 100%;
+  }
+  .scrolling-image3 img {
+    max-width: unset;
+    height: 100%;
+  }
+  .wood-img img {
+    max-width: unset;
+    height: 100%;
+  }
+  .left-top-image img {
+    position: absolute;
+  }
+  .right-top-image img {
+    position: absolute;
+    right: 0px;
+  }
+  .center-image {
+    position: absolute;
+    left: 33%;
+    top: -11%;
+    right: 33%;
+    cursor: pointer;
+    z-index: 20;
+    transition:0.2s;
+  }
+  .center-image:hover {
+    top: -5%;
+    display:block;
+  }
+  .hover-tex{
+    position: absolute;
+    top: 0px;
+    left: 43%;
+    z-index: 40;
+    font-family: sans-serif;
+    font-size: x-large;
+    
+  }
+  .footer img {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+  .tree-img img {
+    position: absolute;
+    bottom: 65px;
+    z-index: 1;
+    left: 20%;
+  }
+  .wood-img {
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+  }
+.hover-tex{
+    display: none;
+}
+  .center-image:hover .hover-tex{
+    display: block;
+    position:absolute;
+    z-index:999;
+    top:20%;
+    left:25%;
+    font-weight:bold;
+}
 
-    .buy-btn {
-      background-color: #6f9a37;
-      color: white;
-      padding: 10px;
-      border: 0px;
-      justify-content: flex-end;
-      position: absolute;
-      right: 15px;
-      bottom: 15px;
-      box-shadow: 0 2px 0 #6f9a37;
-      border-radius: 5px;
+  .twitter img {
+    position: absolute;
+    bottom: 67px;
+    right: 562px;
+    z-index: 1;
+  }
+  .facebook img {
+    position: absolute;
+    bottom: 67px;
+    right: 460px;
+    z-index: 1;
+  }
+  .letter img {
+    position: absolute;
+    bottom: 68px;
+    right: 348px;
+    z-index: 1;
+  }
+  .scroll-section {
+    position: absolute;
+    left: 33%;
+    bottom: 43%;
+  }
+  .scrolling-image1 {
+    position: absolute;
+    display:none;
+     bottom:20%;
+    z-index: 1;
+  }
+  .scrolling-image2 {
+    position: absolute;
+    bottom:20%;
+    z-index: 1;
+  }
+  .scrolling-image3 {
+    position: absolute;
+    display:none;
+    bottom:20%;
+    z-index: 1;
+  }
+  .left-btn {
+    position: absolute;
+    right: 70%;
+    bottom: 40%;
+    z-index: 2;
+  }
+  .left-btn:hover {
+    right: 71%;
+  }
+  .right-btn {
+    position: absolute;
+    left: 78%;
+    bottom: 40%;
+    z-index: 2;
+  }
+  .right-btn:hover {
+    left: 70%;
+  }
+  .center-part {
+    position: absolute;
+    top: 250px;
+    left: 570px;
+    bottom: 150px;
+  }
+  .bg-rotate {
+    position: absolute;
+    top: -20%;
+    left: 15%;
+  }
+  .wish-img {
+    position: absolute;
+    left: 28%;
+    top: 15%;
+  }
+  .snow-toy {
+    position: absolute;
+    bottom: 68px;
+    right: 348px;
+    z-index: 1;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
     }
-    .container {
-      background-image: url("https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732901138/bg_py5p4h.jpg");
-      height: 100vh;
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .w3-animate-top {
+    position: relative;
+    animation: animatetop 0.8s;
+  }
+  .bg-rotate {
+    animation: rotate 5s infinite linear;
+  }
+  @media screen and (min-width: 320px) and (max-width: 499px){
+    .macontainer {
+      background-image: url("https://cdn.shopify.com/s/files/1/1198/3148/files/bg.jpg?v=1733322463");
+      height: 60vh;
       width: 100vw;
       background-size: cover;
       position: relative;
+      margin: 0px;
     }
     .left-top-image img {
       position: absolute;
+      width: 30%;
+    }
+     .tree-img img {
+      position: absolute;
+      right: -8px;
+      bottom: -8px;
+      left: 0%;
+      width: 163px;
+      z-index: 2;
+    }
+    .left-top-image img {
+      position: absolute;
+      width: 30%;
     }
     .right-top-image img {
       position: absolute;
       right: 0px;
+      width: 30%;
     }
     .center-image img {
       position: absolute;
-      left: 33%;
-      top: -16%;
+      left: -10%;
       right: 33%;
       cursor: pointer;
       z-index: 20;
     }
-    .center-image img:hover {
-      top: -5%;
-    }
-    .footer img {
-      position: absolute;
-      bottom: 0px;
-      width: 100%;
-    }
-    .tree-img img {
-      position: absolute;
-      bottom: 65px;
-      z-index: 1;
-      left: 20%;
-    }
-    .wood-img {
-      position: absolute;
-      bottom: 20%;
-      left: 30%;
-    }
-
-    .twitter img {
-      position: absolute;
-      bottom: 67px;
-      right: 562px;
-      z-index: 1;
-    }
-    .facebook img {
-      position: absolute;
-      bottom: 67px;
-      right: 460px;
-      z-index: 1;
-    }
-    .letter img {
-      position: absolute;
-      bottom: 68px;
-      right: 348px;
-      z-index: 1;
-    }
-    .scroll-section {
-      position: absolute;
-      left: 33%;
-      bottom: 43%;
-    }
-    .scrolling-image1 {
-      position: absolute;
-      z-index: 1;
-    }
-    .scrolling-image2 {
-      position: absolute;
-      z-index: 1;
-    }
-    .scrolling-image3 {
-      position: absolute;
-      z-index: 1;
-    }
-    .left-btn {
-      position: absolute;
-      right: 70%;
-      bottom: 40%;
-      z-index: 2;
-    }
-    .left-btn:hover {
-      right: 71%;
-    }
-    .right-btn {
-      position: absolute;
-      left: 68%;
-      bottom: 40%;
-      z-index: 2;
-    }
-    .right-btn:hover {
-      left: 69%;
-    }
-    .center-part {
-      position: absolute;
-      top: 250px;
-      left: 570px;
-      bottom: 150px;
-    }
-    .bg-rotate {
-      position: absolute;
-      top: -55%;
-      left: -5%;
-    }
     .wish-img {
       position: absolute;
-      left: 30%;
+      left: 25%;
       top: 15%;
+      right: 24%;
     }
     .snow-toy {
       position: absolute;
-      bottom: 68px;
-      right: 348px;
+      bottom: -1%;
+      right: 0%;
+      z-index: 1;
+      width: 200px;
+    }
+    .snow-toy img {
+      width: 200px;
+    }
+    .left-btn {
+      position: absolute;
+      left: 10%;
+      top: 56%;
+      z-index: 2;
+    }
+    .right-btn {
+      position: absolute;
+      top: 55%;
+      z-index: 2;
+    }
+    .right-btn img{
+      width:70px;
+      max-width:unset !important;
+      height:unset
+    }
+    .left-btn img{
+      width:70px;
+      max-width:unset !important;
+      height:unset
+    }
+    .center-part {
+      left: 28%;
+    }
+    .wood-img {
+      position: absolute;
+      left: 30%;
+      bottom: 32%;
+    }
+    .wood-img img {
+      width: 200px;
+    }
+    .scrolling-image1 img{
+      width:200px;
+    }
+    .scrolling-image2 img{
+      width:200px;
+    }
+    .scrolling-image3 img{
+      width:200px;
+    }
+    .bg-rotate img{
+      width:200px;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 999px) {
+    .snow-toy {
+      position: absolute;
+      bottom: 4%;
+      right: 0%;
       z-index: 1;
     }
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
+    .snow-toy img {
+      width: 200px;
+    }
+
+    .wish-img img {
+      width: 600px;
+    }
+    .wish-img {
+      position: absolute;
+      left: 17%;
+      top: 20%;
+    }
+    .center-part {
+      left: 25%;
+    }
+    .wood-img img {
+      width: 500px;
+    }
+    .center-image img {
+      left: 15%;
+    }
+    .tree-img img {
+      position: absolute;
+      bottom: 4%;
+      z-index: 1;
+      left: 0%;
+      width: 200px;
+    }
+    .letter img {
+      bottom: 4%;
+      right: 8%;
+    }
+    .twitter img {
+      bottom: 4%;
+      right: 24%;
+    }
+    .facebook img {
+      bottom: 4%;
+      right: 33%;
+    }
+    .bg-rotate {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+    .bg-rotate img {
+      width: 560px;
+    }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1499px) {
+    .snow-toy {
+      position: absolute;
+      bottom: 4%;
+      right: 0%;
+    }
+    .snow-toy img {
+      width: 300px;
+    }
+    .wish-img {
+      position: absolute;
+      left: 20%;
+      top: 20%;
+    }
+    .tree-img img {
+      left: 1%;
+      bottom: 5%;
+      width: 280px;
+    }
+    .center-part {
+      left: 32%;
+      bottom: 15%;
+    }
+    .center-image img {
+      left: 25%;
+    }
+    .letter img {
+      bottom: 4%;
+      right: 8%;
+    }
+    .facebook img {
+      bottom: 4%;
+      right: 20%;
+    }
+    .twitter img {
+      bottom: 4%;
+      right: 28%;
+    }
+    .left-btn {
+      right: 70%;
+    }
+    .right-btn {
+      left: 80%;
+    }
+    .wood-img img {
+      width: 590px;
+    }
+    .bg-rotate {
+      position: absolute;
+      top: -12%;
+      left: -12%;
+    }
+    .bg-rotate img {
+      width: 600px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    .snow-toy {
+      position: absolute;
+      bottom: 4%;
+      left: 75%;
+      z-index: 1;
+    }
+    .center-part {
+      left: 32%;
+    }
+    .right-btn {
+      left: 69%;
+    }
+    .tree-img img {
+      left: 9%;
+      bottom: 4%;
+    }
+    .scrolling-image1 {
+      left: 18%;
+    }
+    .scrolling-image2 {
+      left: 18%;
+    }
+    .scrolling-image3 {
+      left: 18%;
+    }
+    .wood-img img {
+      width: 630px;
+    }
+    .center-image img {
+      left: 35%;
+    }
+    .bg-rotate img {
+      height: 730px;
+    }
+  }
+
+  @media screen {
+    /* snow fall css */
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 0;
+      background: radial-gradient(
+        circle,
+        rgb(126, 223, 255) 0%,
+        rgba(71, 196, 255, 1) 68%,
+        rgba(0, 110, 239, 1) 100%
+      );
+    }
+
+    .loader-icon-1 {
+      font-size: 80px;
+      color: rgb(200, 241, 255, 0.8);
+      text-shadow: 1px 1px 1px rgba(71, 196, 255, 1), -1px -1px 1px white;
+      animation: snow-loader 0.5s 9 linear alternate-reverse forwards,
+        snow-loader-zoom 5s forwards;
+      animation-delay: 0s, 4.5s;
+    }
+
+    @keyframes snow-loader {
+      from {
+        transform: rotateY(0deg);
       }
-      50% {
-        transform: rotate(180deg);
-      }
-      100% {
-        transform: rotate(360deg);
+
+      to {
+        transform: rotateY(90deg);
       }
     }
-    @keyframes animatetop {
+
+    @keyframes snow-loader-zoom {
       from {
-        top: -300px;
+        transform: scale(1, 1) rotateZ(0deg);
+        color: rgb(200, 241, 255, 0.8);
+      }
+
+      to {
+        color: #123;
+        transform: scale(200, 200) rotateZ(360deg);
+      }
+    }
+
+    .loader-text {
+      font-size: 25px;
+      color: rgb(200, 241, 255);
+    }
+
+    .main {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: main-loadup 1s forwards linear,
+        main-loadup-bg 10s forwards linear;
+      animation-delay: 7s, 8s;
+    }
+
+    @keyframes main-loadup {
+      from {
         opacity: 0;
       }
+
       to {
-        top: 0;
         opacity: 1;
       }
     }
 
-    .w3-animate-top {
-      position: relative;
-      animation: animatetop 0.8s;
-    }
-    .bg-rotate {
-      animation: rotate 5s infinite linear;
-    }
-    @media screen and (min-width: 500px) and (max-width: 999px) {
-      .snow-toy {
-        position: absolute;
-        bottom: 4%;
-        right: 0%;
-        z-index: 1;
-      }
-      .snow-toy img {
-        width: 200px;
+    @keyframes main-loadup-bg {
+      from {
+        background-size: 100% 100%;
+        background-position: 0% 0%;
       }
 
-      .wish-img img {
-        width: 600px;
-      }
-      .wish-img {
-        position: absolute;
-        left: 17%;
-        top: 20%;
-      }
-      .center-part {
-        left: 25%;
-      }
-      .wood-img img {
-        width: 500px;
-      }
-      .center-image img {
-        left: 15%;
-      }
-      .tree-img img {
-        position: absolute;
-        bottom: 4%;
-        z-index: 1;
-        left: 0%;
-        width: 200px;
-      }
-      .letter img {
-        bottom: 4%;
-        right: 8%;
-      }
-      .twitter img {
-        bottom: 4%;
-        right: 24%;
-      }
-      .facebook img {
-        bottom: 4%;
-        right: 33%;
-      }
-      .bg-rotate {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-      }
-      .bg-rotate img {
-        width: 560px;
-      }
-    }
-    @media screen and (min-width: 1000px) and (max-width: 1499px) {
-      .snow-toy {
-        position: absolute;
-        bottom: 4%;
-        right: 0%;
-      }
-      .snow-toy img {
-        width: 300px;
-      }
-      .wish-img {
-        position: absolute;
-        left: 20%;
-        top: 20%;
-      }
-      .tree-img img {
-        left: 1%;
-        bottom: 5%;
-        width: 280px;
-      }
-      .center-part {
-        left: 32%;
-        bottom: 15%;
-      }
-      .center-image img {
-        left: 25%;
-      }
-      .letter img {
-        bottom: 4%;
-        right: 8%;
-      }
-      .facebook img {
-        bottom: 4%;
-        right: 20%;
-      }
-      .twitter img {
-        bottom: 4%;
-        right: 28%;
-      }
-      .left-btn {
-        right: 70%;
-      }
-      .right-btn {
-        left: 80%;
-      }
-      .wood-img img {
-        width: 590px;
-      }
-      .bg-rotate {
-        position: absolute;
-        top: -12%;
-        left: -12%;
-      }
-      .bg-rotate img {
-        width: 600px;
-      }
-    }
-    @media screen and (min-width: 1500px) and (max-width: 1920px) {
-      .snow-toy {
-        position: absolute;
-        bottom: 68px;
-        left: 75%;
-        z-index: 1;
-      }
-      .center-part {
-        left: 32%;
-      }
-      .right-btn {
-        left: 67%;
-      }
-      .tree-img img {
-        left: 9%;
-        bottom: 9%;
-      }
-      .scrolling-image1 {
-        left: 18%;
-      }
-      .scrolling-image2 {
-        left: 18%;
-      }
-      .scrolling-image3 {
-        left: 18%;
-      }
-      .wood-img img {
-        width: 630px;
-      }
-      .center-image img {
-        left: 35%;
-      }
-      .bg-rotate img {
-        height: 730px;
+      to {
+        background-size: 400% 400%;
+        background-position: 0% 100%;
       }
     }
 
-    @media screen {
-      /* snow fall css */
-      .loader {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 0;
-        background: radial-gradient(
-          circle,
-          rgb(126, 223, 255) 0%,
-          rgba(71, 196, 255, 1) 68%,
-          rgba(0, 110, 239, 1) 100%
-        );
-      }
-
-      .loader-icon-1 {
-        font-size: 80px;
-        color: rgb(200, 241, 255, 0.8);
-        text-shadow: 1px 1px 1px rgba(71, 196, 255, 1), -1px -1px 1px white;
-        animation: snow-loader 0.5s 9 linear alternate-reverse forwards,
-          snow-loader-zoom 5s forwards;
-        animation-delay: 0s, 4.5s;
-      }
-
-      @keyframes snow-loader {
-        from {
-          transform: rotateY(0deg);
-        }
-
-        to {
-          transform: rotateY(90deg);
-        }
-      }
-
-      @keyframes snow-loader-zoom {
-        from {
-          transform: scale(1, 1) rotateZ(0deg);
-          color: rgb(200, 241, 255, 0.8);
-        }
-
-        to {
-          color: #123;
-          transform: scale(200, 200) rotateZ(360deg);
-        }
-      }
-
-      .loader-text {
-        font-size: 25px;
-        color: rgb(200, 241, 255);
-      }
-
-      .main {
-        z-index: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        animation: main-loadup 1s forwards linear,
-          main-loadup-bg 10s forwards linear;
-        animation-delay: 7s, 8s;
-      }
-
-      @keyframes main-loadup {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes main-loadup-bg {
-        from {
-          background-size: 100% 100%;
-          background-position: 0% 0%;
-        }
-
-        to {
-          background-size: 400% 400%;
-          background-position: 0% 100%;
-        }
-      }
-
-      .initial-snow {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      .initial-snow > * {
-        font-size: 50px;
-        color: white;
-        position: absolute;
-        top: -5vh;
-      }
-
-      @keyframes snowfall {
-        0% {
-          transform: translate3d(var(--left-ini), 0, 0);
-        }
-
-        100% {
-          transform: translate3d(var(--left-end), 110vh, 0);
-        }
-      }
-
-      .snow:nth-child(2n) {
-        filter: blur(1px);
-        font-size: 40px;
-      }
-
-      .snow:nth-child(6n) {
-        filter: blur(2px);
-        font-size: 30px;
-      }
-
-      .snow:nth-child(10n) {
-        filter: blur(5px);
-        font-size: 30px;
-      }
-
-      .snow:nth-child(1) {
-        --size: 0.8vw;
-        --left-ini: 0vw;
-        --left-end: -1vw;
-        left: 70vw;
-        animation: snowfall 9s linear infinite;
-        animation-delay: -1s;
-      }
-
-      .snow:nth-child(2) {
-        --size: 0.2vw;
-        --left-ini: -7vw;
-        --left-end: 10vw;
-        left: 65vw;
-        animation: snowfall 15s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(3) {
-        --size: 1vw;
-        --left-ini: 6vw;
-        --left-end: 6vw;
-        left: 1vw;
-        animation: snowfall 9s linear infinite;
-        animation-delay: -7s;
-      }
-
-      .snow:nth-child(4) {
-        --size: 0.2vw;
-        --left-ini: -3vw;
-        --left-end: 9vw;
-        left: 88vw;
-        animation: snowfall 14s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(5) {
-        --size: 0.4vw;
-        --left-ini: -2vw;
-        --left-end: -9vw;
-        left: 74vw;
-        animation: snowfall 6s linear infinite;
-        animation-delay: -4s;
-      }
-
-      .snow:nth-child(6) {
-        --size: 0.2vw;
-        --left-ini: 5vw;
-        --left-end: 1vw;
-        left: 35vw;
-        animation: snowfall 6s linear infinite;
-        animation-delay: -7s;
-      }
-
-      .snow:nth-child(7) {
-        --size: 0.4vw;
-        --left-ini: -2vw;
-        --left-end: -1vw;
-        left: 27vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(8) {
-        --size: 1vw;
-        --left-ini: -9vw;
-        --left-end: -2vw;
-        left: 69vw;
-        animation: snowfall 8s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(9) {
-        --size: 0.2vw;
-        --left-ini: -1vw;
-        --left-end: -5vw;
-        left: 84vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(10) {
-        --size: 0.2vw;
-        --left-ini: 7vw;
-        --left-end: -9vw;
-        left: 82vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -3s;
-      }
-
-      .snow:nth-child(11) {
-        --size: 0.6vw;
-        --left-ini: -2vw;
-        --left-end: -1vw;
-        left: 48vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -1s;
-      }
-
-      .snow:nth-child(12) {
-        --size: 0.2vw;
-        --left-ini: 5vw;
-        --left-end: 6vw;
-        left: 39vw;
-        animation: snowfall 15s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(13) {
-        --size: 0.2vw;
-        --left-ini: 6vw;
-        --left-end: 5vw;
-        left: 3vw;
-        animation: snowfall 9s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(14) {
-        --size: 0.8vw;
-        --left-ini: -5vw;
-        --left-end: -2vw;
-        left: 49vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(15) {
-        --size: 0.6vw;
-        --left-ini: 10vw;
-        --left-end: 4vw;
-        left: 77vw;
-        animation: snowfall 7s linear infinite;
-        animation-delay: -4s;
-      }
-
-      .snow:nth-child(16) {
-        --size: 0.8vw;
-        --left-ini: -3vw;
-        --left-end: 1vw;
-        left: 86vw;
-        animation: snowfall 14s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(17) {
-        --size: 1vw;
-        --left-ini: 6vw;
-        --left-end: -7vw;
-        left: 18vw;
-        animation: snowfall 9s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(18) {
-        --size: 1vw;
-        --left-ini: -9vw;
-        --left-end: 4vw;
-        left: 64vw;
-        animation: snowfall 13s linear infinite;
-        animation-delay: -7s;
-      }
-
-      .snow:nth-child(19) {
-        --size: 1vw;
-        --left-ini: 2vw;
-        --left-end: -7vw;
-        left: 52vw;
-        animation: snowfall 15s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(20) {
-        --size: 0.4vw;
-        --left-ini: 0vw;
-        --left-end: 8vw;
-        left: 5vw;
-        animation: snowfall 8s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(21) {
-        --size: 0.6vw;
-        --left-ini: -9vw;
-        --left-end: -2vw;
-        left: 10vw;
-        animation: snowfall 12s linear infinite;
-        animation-delay: -3s;
-      }
-
-      .snow:nth-child(22) {
-        --size: 0.8vw;
-        --left-ini: -3vw;
-        --left-end: -8vw;
-        left: 54vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(23) {
-        --size: 0.6vw;
-        --left-ini: -7vw;
-        --left-end: -8vw;
-        left: 20vw;
-        animation: snowfall 6s linear infinite;
-        animation-delay: -3s;
-      }
-
-      .snow:nth-child(24) {
-        --size: 0.4vw;
-        --left-ini: 10vw;
-        --left-end: -4vw;
-        left: 68vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -8s;
-      }
-
-      .snow:nth-child(25) {
-        --size: 1vw;
-        --left-ini: 3vw;
-        --left-end: 5vw;
-        left: 90vw;
-        animation: snowfall 7s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(26) {
-        --size: 1vw;
-        --left-ini: -7vw;
-        --left-end: 5vw;
-        left: 71vw;
-        animation: snowfall 13s linear infinite;
-        animation-delay: -2s;
-      }
-
-      .snow:nth-child(27) {
-        --size: 0.6vw;
-        --left-ini: 9vw;
-        --left-end: 4vw;
-        left: 2vw;
-        animation: snowfall 15s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(28) {
-        --size: 1vw;
-        --left-ini: -5vw;
-        --left-end: 3vw;
-        left: 23vw;
-        animation: snowfall 12s linear infinite;
-        animation-delay: -1s;
-      }
-
-      .snow:nth-child(29) {
-        --size: 0.4vw;
-        --left-ini: -2vw;
-        --left-end: -1vw;
-        left: 39vw;
-        animation: snowfall 14s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(30) {
-        --size: 0.6vw;
-        --left-ini: -9vw;
-        --left-end: -5vw;
-        left: 76vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(31) {
-        --size: 0.4vw;
-        --left-ini: -5vw;
-        --left-end: 3vw;
-        left: 14vw;
-        animation: snowfall 8s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(32) {
-        --size: 0.2vw;
-        --left-ini: 5vw;
-        --left-end: -1vw;
-        left: 86vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(33) {
-        --size: 0.4vw;
-        --left-ini: -3vw;
-        --left-end: 10vw;
-        left: 66vw;
-        animation: snowfall 6s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(34) {
-        --size: 1vw;
-        --left-ini: -3vw;
-        --left-end: 6vw;
-        left: 75vw;
-        animation: snowfall 14s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(35) {
-        --size: 1vw;
-        --left-ini: -6vw;
-        --left-end: 7vw;
-        left: 22vw;
-        animation: snowfall 7s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(36) {
-        --size: 1vw;
-        --left-ini: 3vw;
-        --left-end: 4vw;
-        left: 10vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -10s;
-      }
-
-      .snow:nth-child(37) {
-        --size: 0.6vw;
-        --left-ini: 2vw;
-        --left-end: 10vw;
-        left: 95vw;
-        animation: snowfall 13s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(38) {
-        --size: 0.8vw;
-        --left-ini: 5vw;
-        --left-end: 8vw;
-        left: 34vw;
-        animation: snowfall 9s linear infinite;
-        animation-delay: -10s;
-      }
-
-      .snow:nth-child(39) {
-        --size: 0.8vw;
-        --left-ini: 4vw;
-        --left-end: 0vw;
-        left: 80vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -2s;
-      }
-
-      .snow:nth-child(40) {
-        --size: 0.8vw;
-        --left-ini: 1vw;
-        --left-end: -7vw;
-        left: 45vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -4s;
-      }
-
-      .snow:nth-child(41) {
-        --size: 0.2vw;
-        --left-ini: 9vw;
-        --left-end: 10vw;
-        left: 82vw;
-        animation: snowfall 8s linear infinite;
-        animation-delay: -2s;
-      }
-
-      .snow:nth-child(42) {
-        --size: 1vw;
-        --left-ini: 9vw;
-        --left-end: -9vw;
-        left: 22vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(43) {
-        --size: 0.6vw;
-        --left-ini: 5vw;
-        --left-end: 8vw;
-        left: 66vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -1s;
-      }
-
-      .snow:nth-child(44) {
-        --size: 0.6vw;
-        --left-ini: -5vw;
-        --left-end: -2vw;
-        left: 75vw;
-        animation: snowfall 12s linear infinite;
-        animation-delay: -4s;
-      }
-
-      .snow:nth-child(45) {
-        --size: 0.2vw;
-        --left-ini: 0vw;
-        --left-end: 3vw;
-        left: 2vw;
-        animation: snowfall 7s linear infinite;
-        animation-delay: -5s;
-      }
-
-      .snow:nth-child(46) {
-        --size: 0.2vw;
-        --left-ini: 8vw;
-        --left-end: -3vw;
-        left: 94vw;
-        animation: snowfall 8s linear infinite;
-        animation-delay: -9s;
-      }
-
-      .snow:nth-child(47) {
-        --size: 0.6vw;
-        --left-ini: -6vw;
-        --left-end: -9vw;
-        left: 95vw;
-        animation: snowfall 11s linear infinite;
-        animation-delay: -4s;
-      }
-
-      .snow:nth-child(48) {
-        --size: 0.2vw;
-        --left-ini: -5vw;
-        --left-end: 6vw;
-        left: 34vw;
-        animation: snowfall 10s linear infinite;
-        animation-delay: -6s;
-      }
-
-      .snow:nth-child(49) {
-        --size: 0.8vw;
-        --left-ini: 4vw;
-        --left-end: 8vw;
-        left: 22vw;
-        animation: snowfall 12s linear infinite;
-        animation-delay: -10s;
-      }
-
-      .snow:nth-child(50) {
-        --size: 0.2vw;
-        --left-ini: -4vw;
-        --left-end: 4vw;
-        left: 100vw;
-        animation: snowfall 14s linear infinite;
-        animation-delay: -9s;
-      }
-      /* End Snow Fall */
+    .initial-snow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
-  </style>
-  <body>
-    <div>
-      <div>
-        <header>
-          <button class="buy-btn">Buy now</button>
-        </header>
-        <div class="container">
-          <div class="main">
-            <div class="initial-snow">
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-              <div class="snow">&#10052;</div>
-            </div>
-          </div>
-          <div class="left-top-image">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732901275/headerLeft_fttizv.png"
-              alt="left-top-image"
-            />
-          </div>
-          <div class="center-image">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732901273/counter_vnnlbi.png"
-              alt="center-image"
-            />
-          </div>
-          <div class="right-top-image">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732901274/headerRight_k6lbon.png"
-              alt="right-top-image"
-            />
-          </div>
 
-          <div class="tree-img">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1733233314/footerLink_u9wcgr.png"
-              alt="tree-img"
-            />
-          </div>
+    .initial-snow > * {
+      font-size: 50px;
+      color: white;
+      position: absolute;
+      top: -5vh;
+    }
 
-          <div class="left-btn" id="left-btn">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732908294/btnPrev_pelaih.png"
-              alt="left-btn"
-            />
-          </div>
-          <div class="wish-img">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1733164830/Text_nf93tt.png"
-              alt="wish-img"
-            />
-          </div>
-          <div class="center-part">
-            <div class="scroll-section" id="scrollSection">
-              <div class="scrolling-image1" id="img1">
-                <img
-                  src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732904728/02_g6setz.png"
-                  alt="scrolling-image1"
-                />
-              </div>
-              <div class="scrolling-image2" id="img2">
-                <img
-                  src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732904728/01_cvypjt.png"
-                  alt="scrolling-image2"
-                />
-              </div>
-              <div class="scrolling-image3" id="img3">
-                <img
-                  src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1733149107/03_ceruyp.png"
-                  alt="scrolling-image3"
-                />
-              </div>
-              <div class="bg-rotate">
-                <img
-                  src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1733157089/bgRotate_uygtk1.png"
-                  alt="bg-rotate"
-                />
-              </div>
-            </div>
-            <div class="wood-img">
-              <img
-                src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732903200/sliderBottom_zkn2mi.png"
-                alt="wood-img"
-              />
-            </div>
-          </div>
-          <div class="right-btn" id="right-btn">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732908295/btnNext_nramfs.png"
-              alt="right-btn"
-            />
-          </div>
+    @keyframes snowfall {
+      0% {
+        transform: translate3d(var(--left-ini), 0, 0);
+      }
 
-          <!-- <div class="twitter">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732904020/twitter_az3z9e.png"
-            />
-          </div>
-          <div class="facebook">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732904019/facebook_whatqh.png"
-            />
-          </div>
-          <div class="letter">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732909488/mail_z4toux.png"
-            />
-          </div> -->
-          <div class="snow-toy">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1733232971/Tile_oyynsq.png"
-              alt="snow-toy"
-            />
-          </div>
-          <div class="footer">
-            <img
-              src="https://res.cloudinary.com/dj7bc9qpp/image/upload/v1732902266/footerBg_cvf0y9.png"
-              alt="footer"
-            />
-          </div>
-        </div>
+      100% {
+        transform: translate3d(var(--left-end), 110vh, 0);
+      }
+    }
+
+    .snow:nth-child(2n) {
+      filter: blur(1px);
+      font-size: 40px;
+    }
+
+    .snow:nth-child(6n) {
+      filter: blur(2px);
+      font-size: 30px;
+    }
+
+    .snow:nth-child(10n) {
+      filter: blur(5px);
+      font-size: 30px;
+    }
+
+    .snow:nth-child(1) {
+      --size: 0.8vw;
+      --left-ini: 0vw;
+      --left-end: -1vw;
+      left: 70vw;
+      animation: snowfall 9s linear infinite;
+      animation-delay: -1s;
+    }
+
+    .snow:nth-child(2) {
+      --size: 0.2vw;
+      --left-ini: -7vw;
+      --left-end: 10vw;
+      left: 65vw;
+      animation: snowfall 15s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(3) {
+      --size: 1vw;
+      --left-ini: 6vw;
+      --left-end: 6vw;
+      left: 1vw;
+      animation: snowfall 9s linear infinite;
+      animation-delay: -7s;
+    }
+
+    .snow:nth-child(4) {
+      --size: 0.2vw;
+      --left-ini: -3vw;
+      --left-end: 9vw;
+      left: 88vw;
+      animation: snowfall 14s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(5) {
+      --size: 0.4vw;
+      --left-ini: -2vw;
+      --left-end: -9vw;
+      left: 74vw;
+      animation: snowfall 6s linear infinite;
+      animation-delay: -4s;
+    }
+
+    .snow:nth-child(6) {
+      --size: 0.2vw;
+      --left-ini: 5vw;
+      --left-end: 1vw;
+      left: 35vw;
+      animation: snowfall 6s linear infinite;
+      animation-delay: -7s;
+    }
+
+    .snow:nth-child(7) {
+      --size: 0.4vw;
+      --left-ini: -2vw;
+      --left-end: -1vw;
+      left: 27vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(8) {
+      --size: 1vw;
+      --left-ini: -9vw;
+      --left-end: -2vw;
+      left: 69vw;
+      animation: snowfall 8s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(9) {
+      --size: 0.2vw;
+      --left-ini: -1vw;
+      --left-end: -5vw;
+      left: 84vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(10) {
+      --size: 0.2vw;
+      --left-ini: 7vw;
+      --left-end: -9vw;
+      left: 82vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -3s;
+    }
+
+    .snow:nth-child(11) {
+      --size: 0.6vw;
+      --left-ini: -2vw;
+      --left-end: -1vw;
+      left: 48vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -1s;
+    }
+
+    .snow:nth-child(12) {
+      --size: 0.2vw;
+      --left-ini: 5vw;
+      --left-end: 6vw;
+      left: 39vw;
+      animation: snowfall 15s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(13) {
+      --size: 0.2vw;
+      --left-ini: 6vw;
+      --left-end: 5vw;
+      left: 3vw;
+      animation: snowfall 9s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(14) {
+      --size: 0.8vw;
+      --left-ini: -5vw;
+      --left-end: -2vw;
+      left: 49vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(15) {
+      --size: 0.6vw;
+      --left-ini: 10vw;
+      --left-end: 4vw;
+      left: 77vw;
+      animation: snowfall 7s linear infinite;
+      animation-delay: -4s;
+    }
+
+    .snow:nth-child(16) {
+      --size: 0.8vw;
+      --left-ini: -3vw;
+      --left-end: 1vw;
+      left: 86vw;
+      animation: snowfall 14s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(17) {
+      --size: 1vw;
+      --left-ini: 6vw;
+      --left-end: -7vw;
+      left: 18vw;
+      animation: snowfall 9s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(18) {
+      --size: 1vw;
+      --left-ini: -9vw;
+      --left-end: 4vw;
+      left: 64vw;
+      animation: snowfall 13s linear infinite;
+      animation-delay: -7s;
+    }
+
+    .snow:nth-child(19) {
+      --size: 1vw;
+      --left-ini: 2vw;
+      --left-end: -7vw;
+      left: 52vw;
+      animation: snowfall 15s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(20) {
+      --size: 0.4vw;
+      --left-ini: 0vw;
+      --left-end: 8vw;
+      left: 5vw;
+      animation: snowfall 8s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(21) {
+      --size: 0.6vw;
+      --left-ini: -9vw;
+      --left-end: -2vw;
+      left: 10vw;
+      animation: snowfall 12s linear infinite;
+      animation-delay: -3s;
+    }
+
+    .snow:nth-child(22) {
+      --size: 0.8vw;
+      --left-ini: -3vw;
+      --left-end: -8vw;
+      left: 54vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(23) {
+      --size: 0.6vw;
+      --left-ini: -7vw;
+      --left-end: -8vw;
+      left: 20vw;
+      animation: snowfall 6s linear infinite;
+      animation-delay: -3s;
+    }
+
+    .snow:nth-child(24) {
+      --size: 0.4vw;
+      --left-ini: 10vw;
+      --left-end: -4vw;
+      left: 68vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -8s;
+    }
+
+    .snow:nth-child(25) {
+      --size: 1vw;
+      --left-ini: 3vw;
+      --left-end: 5vw;
+      left: 90vw;
+      animation: snowfall 7s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(26) {
+      --size: 1vw;
+      --left-ini: -7vw;
+      --left-end: 5vw;
+      left: 71vw;
+      animation: snowfall 13s linear infinite;
+      animation-delay: -2s;
+    }
+
+    .snow:nth-child(27) {
+      --size: 0.6vw;
+      --left-ini: 9vw;
+      --left-end: 4vw;
+      left: 2vw;
+      animation: snowfall 15s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(28) {
+      --size: 1vw;
+      --left-ini: -5vw;
+      --left-end: 3vw;
+      left: 23vw;
+      animation: snowfall 12s linear infinite;
+      animation-delay: -1s;
+    }
+
+    .snow:nth-child(29) {
+      --size: 0.4vw;
+      --left-ini: -2vw;
+      --left-end: -1vw;
+      left: 39vw;
+      animation: snowfall 14s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(30) {
+      --size: 0.6vw;
+      --left-ini: -9vw;
+      --left-end: -5vw;
+      left: 76vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(31) {
+      --size: 0.4vw;
+      --left-ini: -5vw;
+      --left-end: 3vw;
+      left: 14vw;
+      animation: snowfall 8s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(32) {
+      --size: 0.2vw;
+      --left-ini: 5vw;
+      --left-end: -1vw;
+      left: 86vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(33) {
+      --size: 0.4vw;
+      --left-ini: -3vw;
+      --left-end: 10vw;
+      left: 66vw;
+      animation: snowfall 6s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(34) {
+      --size: 1vw;
+      --left-ini: -3vw;
+      --left-end: 6vw;
+      left: 75vw;
+      animation: snowfall 14s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(35) {
+      --size: 1vw;
+      --left-ini: -6vw;
+      --left-end: 7vw;
+      left: 22vw;
+      animation: snowfall 7s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(36) {
+      --size: 1vw;
+      --left-ini: 3vw;
+      --left-end: 4vw;
+      left: 10vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -10s;
+    }
+
+    .snow:nth-child(37) {
+      --size: 0.6vw;
+      --left-ini: 2vw;
+      --left-end: 10vw;
+      left: 95vw;
+      animation: snowfall 13s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(38) {
+      --size: 0.8vw;
+      --left-ini: 5vw;
+      --left-end: 8vw;
+      left: 34vw;
+      animation: snowfall 9s linear infinite;
+      animation-delay: -10s;
+    }
+
+    .snow:nth-child(39) {
+      --size: 0.8vw;
+      --left-ini: 4vw;
+      --left-end: 0vw;
+      left: 80vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -2s;
+    }
+
+    .snow:nth-child(40) {
+      --size: 0.8vw;
+      --left-ini: 1vw;
+      --left-end: -7vw;
+      left: 45vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -4s;
+    }
+
+    .snow:nth-child(41) {
+      --size: 0.2vw;
+      --left-ini: 9vw;
+      --left-end: 10vw;
+      left: 82vw;
+      animation: snowfall 8s linear infinite;
+      animation-delay: -2s;
+    }
+
+    .snow:nth-child(42) {
+      --size: 1vw;
+      --left-ini: 9vw;
+      --left-end: -9vw;
+      left: 22vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(43) {
+      --size: 0.6vw;
+      --left-ini: 5vw;
+      --left-end: 8vw;
+      left: 66vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -1s;
+    }
+
+    .snow:nth-child(44) {
+      --size: 0.6vw;
+      --left-ini: -5vw;
+      --left-end: -2vw;
+      left: 75vw;
+      animation: snowfall 12s linear infinite;
+      animation-delay: -4s;
+    }
+
+    .snow:nth-child(45) {
+      --size: 0.2vw;
+      --left-ini: 0vw;
+      --left-end: 3vw;
+      left: 2vw;
+      animation: snowfall 7s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .snow:nth-child(46) {
+      --size: 0.2vw;
+      --left-ini: 8vw;
+      --left-end: -3vw;
+      left: 94vw;
+      animation: snowfall 8s linear infinite;
+      animation-delay: -9s;
+    }
+
+    .snow:nth-child(47) {
+      --size: 0.6vw;
+      --left-ini: -6vw;
+      --left-end: -9vw;
+      left: 95vw;
+      animation: snowfall 11s linear infinite;
+      animation-delay: -4s;
+    }
+
+    .snow:nth-child(48) {
+      --size: 0.2vw;
+      --left-ini: -5vw;
+      --left-end: 6vw;
+      left: 34vw;
+      animation: snowfall 10s linear infinite;
+      animation-delay: -6s;
+    }
+
+    .snow:nth-child(49) {
+      --size: 0.8vw;
+      --left-ini: 4vw;
+      --left-end: 8vw;
+      left: 22vw;
+      animation: snowfall 12s linear infinite;
+      animation-delay: -10s;
+    }
+
+    .snow:nth-child(50) {
+      --size: 0.2vw;
+      --left-ini: -4vw;
+      --left-end: 4vw;
+      left: 100vw;
+      animation: snowfall 14s linear infinite;
+      animation-delay: -9s;
+    }
+    /* End Snow Fall */
+  }
+</style>
+
+  <div class="macontainer">
+    <div class="main">
+      <div class="initial-snow">
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
+        <div class="snow">&#10052;</div>
       </div>
     </div>
-    <script>
+    <div class="left-top-image">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/headerLeft.png?v=1733322334"
+        alt="left-top-image"
+      />
+    </div>
+    <div class="center-image">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/counter.png?v=1733322462"
+        alt="center-image"
+      />
+      <p class="hover-tex">Happy New Year</p>
+    </div>
+    <div class="right-top-image">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/headerRight.png?v=1733322334"
+        alt="right-top-image"
+      />
+    </div>
+
+    <div class="tree-img">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/footerLink_1.png?v=1733335136"
+        alt="tree-img"
+      />
+    </div>
+
+    <div class="left-btn" id="left-btn">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/btnPrev.png?v=1733322563"
+        alt="left-btn"
+      />
+    </div>
+    <div class="wish-img">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/Text_945c40ff-daf5-426b-9460-ad307dcea3d5.png?v=1733322804"
+        alt="wish-img"
+      />
+    </div>
+    <div class="center-part">
+      <div class="scroll-section" id="scrollSection">
+        <div class="scrolling-image1" id="img1">
+          <img
+            src="https://cdn.shopify.com/s/files/1/1198/3148/files/02_5a3813c9-e67d-4a42-831c-1600141859a4.png?v=1733324879"
+            alt="scrolling-image1"
+          />
+        </div>
+        <div class="scrolling-image2" id="img2">
+          <img
+            src="https://cdn.shopify.com/s/files/1/1198/3148/files/01_219ae2b2-bbec-405a-8c46-0cd534f21da0.png?v=1733324878"
+            alt="scrolling-image2"
+          />
+        </div>
+        <div class="scrolling-image3" id="img3">
+          <img
+            src="https://cdn.shopify.com/s/files/1/1198/3148/files/03_45573754-4f40-4e4c-a042-4c052ecd53af.png?v=1733324879"
+            alt="scrolling-image3"
+          />
+        </div>
+        <div class="bg-rotate">
+          <img
+            src="https://cdn.shopify.com/s/files/1/1198/3148/files/bgRotate.png?v=1733322564"
+            alt="bg-rotate"
+          />
+        </div>
+      </div>
+      <div class="wood-img">
+        <img
+          src="https://cdn.shopify.com/s/files/1/1198/3148/files/sliderBottom_c4fcd113-6da9-48ff-a655-8fa6c9b7a95c.png?v=1733325121"
+          alt="wood-img"
+        />
+      </div>
+    </div>
+    <div class="right-btn" id="right-btn">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/btnNext.png?v=1733322563"
+        alt="right-btn"
+      />
+    </div>
+    <div class="snow-toy">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/Tile.png?v=1733325178"
+        alt="snow-toy"
+      />
+    </div>
+    <div class="footer">
+      <img
+        src="https://cdn.shopify.com/s/files/1/1198/3148/files/footerBg.png?v=1733322462"
+        alt="footer"
+      />
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
       let imageOne = document.getElementById("img1");
-      let imageTwo = document.getElementById("img2");
-      let imageThree = document.getElementById("img3");
-      let leftBtnElement = document.getElementById("left-btn");
-      let rightBtnElement = document.getElementById("right-btn");
+    let imageTwo = document.getElementById("img2");
+    let imageThree = document.getElementById("img3");
+    let leftBtnElement = document.getElementById("left-btn");
+    let rightBtnElement = document.getElementById("right-btn");
 
-      imageOne.style.display = "none";
-      imageTwo.style.display = "block";
-      imageThree.style.display = "none";
+    imageOne.style.display = "none";
+    imageTwo.style.display = "block";
+    imageThree.style.display = "none";
 
-      leftBtnElement.addEventListener("click", function () {
-        if (imageOne.style.display === "block") {
-          imageOne.style.display = "none";
-          imageThree.style.display = "block";
-        } else if (imageTwo.style.display === "block") {
-          imageTwo.style.display = "none";
-          imageOne.style.display = "block";
-        } else if (imageThree.style.display === "block") {
-          imageThree.style.display = "none";
-          imageTwo.style.display = "block";
-        }
-      });
+    leftBtnElement.addEventListener("click", function () {
+      if (imageOne.style.display === "block") {
+        imageOne.style.display = "none";
+        imageThree.style.display = "block";
+      } else if (imageTwo.style.display === "block") {
+        imageTwo.style.display = "none";
+        imageOne.style.display = "block";
+      } else if (imageThree.style.display === "block") {
+        imageThree.style.display = "none";
+        imageTwo.style.display = "block";
+      }
+    });
+    rightBtnElement.addEventListener("click", function () {
+      if (imageOne.style.display === "block") {
+        imageOne.style.display = "none";
+        imageTwo.style.display = "block";
+      } else if (imageTwo.style.display === "block") {
+        imageTwo.style.display = "none";
+        imageThree.style.display = "block";
+      } else if (imageThree.style.display === "block") {
+        imageThree.style.display = "none";
+        imageOne.style.display = "block";
+      }
+    });
+    setInterval(() => {
+      if (imageOne.style.display === "block") {
+        imageOne.style.display = "none";
+        imageTwo.style.display = "block";
+        imageTwo.classList.add("w3-animate-top");
+      } else if (imageTwo.style.display === "block") {
+        imageTwo.style.display = "none";
+        imageThree.style.display = "block";
+        imageThree.classList.add("w3-animate-top");
+      } else if (imageThree.style.display === "block") {
+        imageThree.style.display = "none";
+        imageOne.style.display = "block";
+        imageOne.classList.add("w3-animate-top");
+      }
+    }, 3000);
+      
+    });
+  </script>
 
-      rightBtnElement.addEventListener("click", function () {
-        if (imageOne.style.display === "block") {
-          imageOne.style.display = "none";
-          imageTwo.style.display = "block";
-        } else if (imageTwo.style.display === "block") {
-          imageTwo.style.display = "none";
-          imageThree.style.display = "block";
-        } else if (imageThree.style.display === "block") {
-          imageThree.style.display = "none";
-          imageOne.style.display = "block";
-        }
-      });
-
-      setInterval(() => {
-        if (imageOne.style.display === "block") {
-          imageOne.style.display = "none";
-          imageTwo.style.display = "block";
-          imageTwo.classList.add("w3-animate-top");
-        } else if (imageTwo.style.display === "block") {
-          imageTwo.style.display = "none";
-          imageThree.style.display = "block";
-          imageThree.classList.add("w3-animate-top");
-        } else if (imageThree.style.display === "block") {
-          imageThree.style.display = "none";
-          imageOne.style.display = "block";
-          imageOne.classList.add("w3-animate-top");
-        }
-      }, 3000);
-    </script>
-  </body>
-</html>
